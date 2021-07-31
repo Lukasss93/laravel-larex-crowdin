@@ -1,0 +1,54 @@
+{
+    "name": "lukasss93/laravel-larex-crowdin",
+    "description": "Laravel Larex Crowdin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Luca Patera",
+            "email": "lucapatera@outlook.it",
+            "homepage": "https://www.lucapatera.it/",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": "^7.4|^8.0",
+        "ext-simplexml": "*",
+        "illuminate/support": "^7.0|^8.0",
+        "lukasss93/laravel-larex": "v3.2",
+        "crowdin/crowdin-api-client": "^1.5"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^5.0|^6.0",
+        "pestphp/pest": "^1.12"
+    },
+    "autoload": {
+        "psr-4": {
+            "Lukasss93\\LarexCrowdin\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Lukasss93\\LarexCrowdin\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Lukasss93\\LarexCrowdin\\LarexCrowdinServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test": [
+            "./vendor/bin/pest --colors=always"
+        ],
+        "test-coverage": [
+            "./vendor/bin/pest --colors=always --coverage-clover ./coverage.xml --configuration ./phpunit.xml --coverage"
+        ]
+    }
+}
