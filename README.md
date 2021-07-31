@@ -83,15 +83,15 @@ composer test
 
 ## 📃 Changelog
 
-Please see the [CHANGELOG.md](https://github.com/Lukasss93/laravel-larex/blob/master/CHANGELOG.md) for more information
+Please see the [CHANGELOG.md](CHANGELOG.md) for more information
 on what has changed recently.
 
 ## 🏅 Credits
 
 - [Luca Patera](https://github.com/Lukasss93)
-- [All Contributors](https://github.com/Lukasss93/laravel-larex/contributors)
+- [All Contributors](https://github.com/Lukasss93/laravel-larex-crowdin/contributors)
 
 ## 📖 License
 
-Please see the [LICENSE.md](https://github.com/Lukasss93/laravel-larex/blob/master/LICENSE.md) file for more
+Please see the [LICENSE.md](LICENSE.md) file for more
 information.
