@@ -15,6 +15,7 @@
     "require": {
         "php": "^7.4|^8.0",
         "ext-simplexml": "*",
+        "ext-json": "*",
         "illuminate/support": "^7.0|^8.0",
         "lukasss93/laravel-larex": "^3.2",
         "crowdin/crowdin-api-client": "^1.5"

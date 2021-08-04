@@ -2,9 +2,9 @@
 
 namespace Lukasss93\LarexCrowdin;
 
-use CrowdinApiClient\Crowdin;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
+use Lukasss93\LarexCrowdin\Support\Crowdin\Crowdin;
 
 class LarexCrowdinServiceProvider extends ServiceProvider
 {
