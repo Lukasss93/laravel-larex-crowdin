@@ -1,8 +1,12 @@
-###### _TODO: image_
+<p align="center">
+    <img style="max-height:400px" src="https://i.imgur.com/yXO1kQC.png"/>
+</p>
 
 # Laravel Larex: Crowdin Plugin
 
 ###### _TODO: badges_
+
+> A Laravel Larex plugin to import/export localization strings from/to Crowdin
 
 ## 📋 Requirements
 
@@ -15,7 +19,10 @@
 ## 🚀 Installation
 
 You can install the package using composer:
-###### _TODO: publish to packagist_
+
+```bash
+composer require lukasss93/laravel-larex-crowdin --dev
+```
 
 Then add the service provider to `config/app.php`.  
 This step *can be skipped* if package auto-discovery is enabled.
