@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file id="37" original="/app.json" source-language="en" target-language="it" datatype="plaintext" project-id="446960" tool-id="crowdin">
+    <header>
+      <tool tool-id="crowdin" tool-name="Crowdin" tool-version="1.1"/>
+    </header>
+    <body>
+      <trans-unit id="1575" resname=".hello">
+        <source>Hello</source>
+        <target state="translated">Ciao</target>
+        <note from="Crowdin" priority="2"> -&gt; hello</note>
+      </trans-unit>
+      <trans-unit id="1577" resname=".car">
+        <source>Car</source>
+        <target state="translated">Auto</target>
+        <note from="Crowdin" priority="2"> -&gt; car</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file id="39" original="/color.json" source-language="en" target-language="it" datatype="plaintext" project-id="446960" tool-id="crowdin">
+    <header>
+      <tool tool-id="crowdin" tool-name="Crowdin" tool-version="1.1"/>
+    </header>
+    <body>
+      <trans-unit id="1579" resname=".red">
+        <source>Red</source>
+        <target state="translated">Rosso</target>
+        <note from="Crowdin" priority="2"> -&gt; red</note>
+      </trans-unit>
+      <trans-unit id="1581" resname=".blue">
+        <source>Blue</source>
+        <target state="translated">Blu</target>
+        <note from="Crowdin" priority="2"> -&gt; blue</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file id="41" original="/device.json" source-language="en" target-language="it" datatype="plaintext" project-id="446960" tool-id="crowdin">
+    <header>
+      <tool tool-id="crowdin" tool-name="Crowdin" tool-version="1.1"/>
+    </header>
+    <body>
+      <trans-unit id="1583" resname=".phone">
+        <source>Phone</source>
+        <target state="translated">Telefono</target>
+        <note from="Crowdin" priority="2"> -&gt; phone</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file id="43" original="/number.json" source-language="en" target-language="it" datatype="plaintext" project-id="446960" tool-id="crowdin">
+    <header>
+      <tool tool-id="crowdin" tool-name="Crowdin" tool-version="1.1"/>
+    </header>
+    <body>
+      <trans-unit id="1585" resname=".one">
+        <source>One</source>
+        <target state="translated">Uno</target>
+        <note from="Crowdin" priority="2"> -&gt; one</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
