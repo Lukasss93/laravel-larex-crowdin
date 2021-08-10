@@ -20,4 +20,19 @@ class CrowdinExtensions
 
         return $files;
     }
+
+    public static function languageList(Crowdin $crowdin, int $limit = 500): array
+    {
+        $items = [];
+        $end = false;
+        $offset = 0;
+        do {
+            $currentFiles = $crowdin->language->list(['offset' => $offset, 'limit' => $limit]);
+            $end = count($currentFiles) === 0;
+            $offset += $limit;
+            $items = array_merge($items, iterator_to_array($currentFiles->getIterator()));
+        } while (!$end);
+
+        return $items;
+    }
 }

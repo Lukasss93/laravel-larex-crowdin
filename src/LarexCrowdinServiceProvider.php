@@ -4,6 +4,7 @@ namespace Lukasss93\LarexCrowdin;
 
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
+use Lukasss93\LarexCrowdin\Commands\LanguagesListCommand;
 use Lukasss93\LarexCrowdin\Support\Crowdin\Crowdin;
 
 class LarexCrowdinServiceProvider extends ServiceProvider
@@ -17,9 +18,13 @@ class LarexCrowdinServiceProvider extends ServiceProvider
 
     public function register(): void
     {
+        $this->commands([
+            LanguagesListCommand::class,
+        ]);
+
         $this->mergeConfigFrom(__DIR__.'/config/larex-crowdin.php', 'larex-crowdin');
 
-        $this->app->singleton(Crowdin::class, function(Application $app){
+        $this->app->singleton(Crowdin::class, function (Application $app) {
             return new Crowdin([
                 'access_token' => config('larex-crowdin.token'),
             ]);
