@@ -42,7 +42,10 @@ it('import strings from crowdin', function () {
         'file' => $this->partialMock(FileApi::class, function (MockInterface $mock) {
             $mock
                 ->shouldReceive('list')
-                ->andReturnValues(getStub(['importer/sourceFilesListFull.php','importer/sourceFilesListEmpty.php'], true));
+                ->andReturnValues(getStub([
+                    'importer/sourceFilesListFull.php',
+                    'importer/sourceFilesListEmpty.php',
+                ], true));
             $mock
                 ->shouldReceive('download')
                 ->andReturn(getStub('importer/sourceFileDownload.php', true));
@@ -59,7 +62,6 @@ it('import strings from crowdin', function () {
         ->expectsOutput('Getting project informations...')
         ->expectsOutput("Project: [123456] Foo Project")
         ->expectsOutput("Source language: en")
-        ->expectsOutput("Target languages: 1")
         ->expectsOutput('Getting project source files list...')
         ->expectsOutput('Project source files found: 4')
         ->expectsOutput('Downloading project translation files...')
@@ -94,7 +96,6 @@ it('does not import due to no source files found', function () {
         ->expectsOutput('Getting project informations...')
         ->expectsOutput("Project: [123456] Foo Project")
         ->expectsOutput("Source language: en")
-        ->expectsOutput("Target languages: 1")
         ->expectsOutput('Getting project source files list...')
         ->expectsOutput('Project source files found: 0')
         ->expectsOutput('No data found to import.')

@@ -38,11 +38,8 @@ class CrowdinImporter implements Importer
 
         //get languages
         $sourceLanguage = $project->getSourceLanguageId();
-        $targetLanguages = collect($project->getTargetLanguageIds())->sort()->values()->toArray();
+        $targetLanguages = collect($project->getTargetLanguageIds())->sort()->values();
         $command->info("Source language: $sourceLanguage");
-        if (count($targetLanguages) > 0) {
-            $command->info("Target languages: ".count($targetLanguages));
-        }
         $command->newLine();
 
         //list source files
