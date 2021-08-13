@@ -68,6 +68,7 @@ class CrowdinImporter implements Importer
             $export = $crowdin->translation->exportProjectTranslation($projectID, [
                 'targetLanguageId' => $languageID,
                 'format' => 'xliff',
+                'skipUntranslatedStrings' => true,
             ]);
             $xliff = Http::get($export->getUrl())->body();
             $translations[$languageID] = $this->parseXliff($xliff);
