@@ -6,7 +6,7 @@ use Lukasss93\LarexCrowdin\Support\Crowdin\Crowdin;
 
 class CrowdinExtensions
 {
-    public static function fileList(Crowdin $crowdin, string $projectID, int $limit = 500): array
+    public static function fileList(Crowdin $crowdin, int $projectID, int $limit = 500): array
     {
         $files = [];
         $end = false;

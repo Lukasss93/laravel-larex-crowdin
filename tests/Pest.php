@@ -76,9 +76,7 @@ function getStub($name, bool $asPHP = false)
     }
 
     if (is_array($name)) {
-        return array_map(function ($item) use ($asPHP) {
-            return getStub($item, $asPHP);
-        }, $name);
+        return array_map(fn ($item) => getStub($item, $asPHP), $name);
     }
 
     throw new InvalidArgumentException('The $name parameter must be a string or array of strings');
