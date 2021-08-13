@@ -42,8 +42,9 @@ php artisan vendor:publish --provider="Lukasss93\LarexCrowdin\LarexCrowdinServic
 ```
 
 ## 🔧 Configuration
-1. Install [Laravel Larex](https://github.com/Lukasss93/laravel-larex) ≥ v3.0
-2. Publish (if you haven't already) and edit your [larex.php](https://github.com/Lukasss93/laravel-larex#-publishing-the-config-file) config
+1. Install [Laravel Larex](https://github.com/Lukasss93/laravel-larex) ≥ v3.5
+2. Publish (if you haven't already) and edit
+   your [larex.php](https://github.com/Lukasss93/laravel-larex#-publishing-the-config-file) config
 3. Append the Crowdin importer in the `importers.list` array:
     ```php
     //...
@@ -80,7 +81,10 @@ php artisan vendor:publish --provider="Lukasss93\LarexCrowdin\LarexCrowdinServic
     ```
 
 ## 👓 Usage
-###### _TODO: usage_
+
+- Run `php artisan larex:import crowdin` to import strings from your Crowdin Project into your Larex CSV
+- Run `php artisan larex:export crowdin` to export strings from your Larex CSV into your Crowdin Project
+- You can still use the `--include` and `--exclude` options to select specific languages to import/export
 
 ## ⚗️ Testing
 
