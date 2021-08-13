@@ -152,11 +152,6 @@ class CrowdinExporter implements Exporter
         $command->warn('Uploading translation files...');
         $bar = $command->getOutput()->createProgressBar(count($targetLanguages));
         foreach ($targetLanguages as $languageID) {
-            if (!array_key_exists($languageID, $languages)) {
-                $bar->advance();
-                continue;
-            }
-
             //loop source file (groups)
             foreach ($fileList as $itemFile) {
                 $itemFileName = Str::replace('.json', '', $itemFile->getName());
