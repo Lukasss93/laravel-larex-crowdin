@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file id="37" original="/app.json" source-language="en" target-language="de" datatype="plaintext" project-id="446960" tool-id="crowdin">
+    <header>
+      <tool tool-id="crowdin" tool-name="Crowdin" tool-version="1.1"/>
+    </header>
+    <body/>
+  </file>
+  <file id="39" original="/color.json" source-language="en" target-language="de" datatype="plaintext" project-id="446960" tool-id="crowdin">
+    <header>
+      <tool tool-id="crowdin" tool-name="Crowdin" tool-version="1.1"/>
+    </header>
+    <body/>
+  </file>
+  <file id="43" original="/number.json" source-language="en" target-language="de" datatype="plaintext" project-id="446960" tool-id="crowdin">
+    <header>
+      <tool tool-id="crowdin" tool-name="Crowdin" tool-version="1.1"/>
+    </header>
+    <body/>
+  </file>
+  <file id="45" original="/family.json" source-language="en" target-language="de" datatype="plaintext" project-id="446960" tool-id="crowdin">
+    <header>
+      <tool tool-id="crowdin" tool-name="Crowdin" tool-version="1.1"/>
+    </header>
+    <body/>
+  </file>
+</xliff>
