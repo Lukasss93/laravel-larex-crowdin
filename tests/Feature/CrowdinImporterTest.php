@@ -21,7 +21,37 @@ it('has right description', function () {
         ->toEqual('Import data from a Crowdin project to CSV');
 });
 
-it('import strings from crowdin', function () {
+it('does not import due to no source files found', function () {
+
+    mockCrowdin([
+        'project' => $this->partialMock(ProjectApi::class, function (MockInterface $mock) {
+            $mock
+                ->shouldReceive('get')
+                ->andReturn(getStub('importer/project.php', true));
+        }),
+        'file' => $this->partialMock(FileApi::class, function (MockInterface $mock) {
+            $mock
+                ->shouldReceive('list')
+                ->andReturn(getStub('importer/sourceFilesListEmpty.php', true));
+        }),
+    ]);
+
+    $this->artisan(LarexImportCommand::class, ['importer' => 'crowdin'])
+        ->expectsOutput('Importing entries...')
+        ->expectsOutput('Getting project informations...')
+        ->expectsOutput("Project: [123456] Foo Project")
+        ->expectsOutput("Source language: en")
+        ->expectsOutput('Getting project source files list...')
+        ->expectsOutput('Project source files found: 0')
+        ->expectsOutput('No data found to import.')
+        ->assertExitCode(0);
+
+    expect(base_path(config('larex.csv.path')))
+        ->not()->toBeFile();
+
+});
+
+it('imports strings', function () {
 
     Http::fake([
         'crowdin-importer.downloads.crowdin.com/*' => Http::sequence()
@@ -73,35 +103,5 @@ it('import strings from crowdin', function () {
         ->toBeFile()
         ->fileContent()
         ->toEqualStub('importer/localization.csv');
-
-});
-
-it('does not import due to no source files found', function () {
-
-    mockCrowdin([
-        'project' => $this->partialMock(ProjectApi::class, function (MockInterface $mock) {
-            $mock
-                ->shouldReceive('get')
-                ->andReturn(getStub('importer/project.php', true));
-        }),
-        'file' => $this->partialMock(FileApi::class, function (MockInterface $mock) {
-            $mock
-                ->shouldReceive('list')
-                ->andReturn(getStub('importer/sourceFilesListEmpty.php', true));
-        }),
-    ]);
-
-    $this->artisan(LarexImportCommand::class, ['importer' => 'crowdin'])
-        ->expectsOutput('Importing entries...')
-        ->expectsOutput('Getting project informations...')
-        ->expectsOutput("Project: [123456] Foo Project")
-        ->expectsOutput("Source language: en")
-        ->expectsOutput('Getting project source files list...')
-        ->expectsOutput('Project source files found: 0')
-        ->expectsOutput('No data found to import.')
-        ->assertExitCode(0);
-
-    expect(base_path(config('larex.csv.path')))
-        ->not()->toBeFile();
 
 });
