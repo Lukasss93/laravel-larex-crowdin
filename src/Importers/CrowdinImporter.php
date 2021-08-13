@@ -25,7 +25,8 @@ class CrowdinImporter implements Importer
      */
     public function handle(LarexImportCommand $command): Collection
     {
-        //TODO: implement --include and --exclude options
+        $include = Str::of($command->option('include'))->explode(',')->reject(fn ($i) => empty($i));
+        $exclude = Str::of($command->option('exclude'))->explode(',')->reject(fn ($i) => empty($i));
 
         $command->newLine();
 
@@ -54,6 +55,11 @@ class CrowdinImporter implements Importer
         if ($filesCount === 0) {
             return collect([]);
         }
+
+        //filter $targetLanguages by include/exclude option
+        $targetLanguages = $targetLanguages
+            ->when($include->isNotEmpty(), fn (Collection $c) => $c->intersect($include))
+            ->when($exclude->isNotEmpty(), fn (Collection $c) => $c->diff($exclude));
 
         //download translation files per language
         $command->warn('Downloading project translation files...');

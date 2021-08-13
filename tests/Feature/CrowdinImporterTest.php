@@ -105,3 +105,6 @@ it('imports strings', function () {
         ->toEqualStub('importer/localization.csv');
 
 });
+
+
+//TODO: test include/exclude option
