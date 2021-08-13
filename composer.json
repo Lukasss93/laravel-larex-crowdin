@@ -14,15 +14,16 @@
     "prefer-stable": true,
     "require": {
         "php": "^7.4|^8.0",
-        "ext-simplexml": "*",
         "ext-json": "*",
+        "ext-simplexml": "*",
+        "crowdin/crowdin-api-client": "^1.5",
         "illuminate/support": "^7.0|^8.0",
-        "lukasss93/laravel-larex": "^3.2",
-        "crowdin/crowdin-api-client": "^1.5"
+        "loilo/fuse": "^4.0",
+        "lukasss93/laravel-larex": "^3.5"
     },
     "require-dev": {
         "orchestra/testbench": "^5.0|^6.0",
-        "pestphp/pest": "^1.12"
+        "pestphp/pest": "^1.15"
     },
     "autoload": {
         "psr-4": {
@@ -49,7 +50,7 @@
             "./vendor/bin/pest --colors=always"
         ],
         "test-coverage": [
-            "./vendor/bin/pest --colors=always --coverage-clover ./coverage.xml --configuration ./phpunit.xml --coverage"
+            "./vendor/bin/pest --colors=always --coverage-clover ./coverage.xml"
         ]
     }
 }
