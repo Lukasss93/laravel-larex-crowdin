@@ -155,7 +155,7 @@ class CrowdinExporter implements Exporter
         foreach ($targetLanguages as $languageID) {
             //loop source file (groups)
             foreach ($fileList as $itemFile) {
-                $itemFileName = Str::replace('.json', '', $itemFile->getName());
+                $itemFileName = str_replace('.json', '', $itemFile->getName());
 
                 if (!array_key_exists($itemFileName, $languages[$languageID])) {
                     continue;
