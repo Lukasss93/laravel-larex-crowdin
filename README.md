@@ -4,7 +4,14 @@
 
 # Laravel Larex: Crowdin Plugin
 
-###### _TODO: badges_
+[![Version](https://poser.pugx.org/lukasss93/laravel-larex-crowdin/v/stable)](https://packagist.org/packages/lukasss93/laravel-larex-crowdin)
+[![Downloads](https://poser.pugx.org/lukasss93/laravel-larex-crowdin/downloads)](https://packagist.org/packages/lukasss93/laravel-larex-crowdin)
+![PHP](https://img.shields.io/badge/PHP-%E2%89%A5%207.4-blue)
+![Laravel](https://img.shields.io/badge/Laravel-%E2%89%A5%207.0-orange)
+[![License](https://poser.pugx.org/lukasss93/laravel-larex-crowdin/license)](https://packagist.org/packages/lukasss93/laravel-larex-crowdin)
+![Build](https://img.shields.io/github/workflow/status/Lukasss93/laravel-larex-crowdin/run-tests)
+[![Coverage](https://img.shields.io/codecov/c/github/lukasss93/laravel-larex-crowdin?token=7YedNMIso5)](https://codecov.io/gh/Lukasss93/laravel-larex-crowdin)
+
 
 > A Laravel Larex plugin to import/export localization strings from/to Crowdin
 
