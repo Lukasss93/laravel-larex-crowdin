@@ -46,7 +46,7 @@ class CrowdinExporter implements Exporter
         //get languages
         $sourceLanguage = $project->getSourceLanguageId();
         $command->info("Source language: $sourceLanguage");
-        $command->newLine();
+        $command->info('');
 
         //parse csv
         $parser = CsvParser::create($reader);
@@ -125,7 +125,8 @@ class CrowdinExporter implements Exporter
             $bar->advance();
         }
         $bar->finish();
-        $command->newLine(2);
+        $command->info('');
+        $command->info('');
 
         //delete source files if old groups doesn't exists anymore
         $csvGroups = collect($languages)->flatMap(fn ($item) => collect($item)->keys())->unique();
@@ -178,7 +179,8 @@ class CrowdinExporter implements Exporter
             $bar->advance();
         }
         $bar->finish();
-        $command->newLine(2);
+        $command->info('');
+        $command->info('');
 
         $command->info('Export completed successfully.');
 

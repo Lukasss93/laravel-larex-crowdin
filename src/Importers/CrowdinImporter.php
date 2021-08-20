@@ -28,7 +28,7 @@ class CrowdinImporter implements Importer
         $include = Str::of($command->option('include'))->explode(',')->reject(fn ($i) => empty($i));
         $exclude = Str::of($command->option('exclude'))->explode(',')->reject(fn ($i) => empty($i));
 
-        $command->newLine();
+        $command->info('');
 
         /** @var Crowdin $crowdin */
         $crowdin = app(Crowdin::class);
@@ -43,14 +43,14 @@ class CrowdinImporter implements Importer
         $sourceLanguage = $project->getSourceLanguageId();
         $targetLanguages = collect($project->getTargetLanguageIds())->sort()->values();
         $command->info("Source language: $sourceLanguage");
-        $command->newLine();
+        $command->info('');
 
         //list source files
         $command->warn('Getting project source files list...');
         $files = CrowdinExtensions::fileList($crowdin, $projectID);
         $filesCount = count($files);
         $command->info("Project source files found: $filesCount");
-        $command->newLine();
+        $command->info('');
 
         if ($filesCount === 0) {
             return collect([]);
@@ -73,7 +73,8 @@ class CrowdinImporter implements Importer
             $xliff = Http::get($export->getUrl())->body();
             $translations[$languageID] = $this->parseXliff($xliff);
         });
-        $command->newLine(2);
+        $command->info('');
+        $command->info('');
 
         //download source files
         $command->warn('Downloading project source files...');
@@ -105,7 +106,8 @@ class CrowdinImporter implements Importer
                     return $out;
                 })->values());
             });
-        $command->newLine(2);
+        $command->info('');
+        $command->info('');
 
         return $rows;
     }
