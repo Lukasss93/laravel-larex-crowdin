@@ -67,9 +67,8 @@ function mockCrowdin(array $properties)
 function getStub($name, bool $asPHP = false)
 {
     if (is_string($name)) {
-
-        if($asPHP){
-            return include(__DIR__."/Stubs/$name");
+        if ($asPHP) {
+            return include __DIR__."/Stubs/$name";
         }
 
         return file_get_contents(__DIR__."/Stubs/$name");

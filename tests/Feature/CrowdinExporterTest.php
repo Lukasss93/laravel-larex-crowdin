@@ -24,7 +24,6 @@ it('has right description', function () {
 });
 
 it('does not export strings due to invalid language code', function () {
-
     mockCrowdin([
         'project' => $this->partialMock(ProjectApi::class, function (MockInterface $mock) {
             $mock
@@ -55,7 +54,6 @@ it('does not export strings due to invalid language code', function () {
 });
 
 it('does not export strings due to unmatching source language code', function () {
-
     mockCrowdin([
         'project' => $this->partialMock(ProjectApi::class, function (MockInterface $mock) {
             $mock
@@ -81,11 +79,9 @@ it('does not export strings due to unmatching source language code', function ()
         ->expectsOutput('Source language: de')
         ->expectsOutput("Your CSV's 3rd language code column (en) must match your Crowdin Project's source language code (de)!")
         ->assertExitCode(1);
-
 });
 
 it('exports strings', function () {
-
     mockCrowdin([
         'project' => $this->partialMock(ProjectApi::class, function (MockInterface $mock) {
             $mock

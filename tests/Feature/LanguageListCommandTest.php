@@ -6,7 +6,6 @@ use Lukasss93\LarexCrowdin\Commands\LanguagesListCommand;
 use Mockery\MockInterface;
 
 it('lists supported languages', function () {
-
     mockCrowdin([
         'language' => $this->partialMock(LanguageApi::class, function (MockInterface $mock) {
             $mock
@@ -27,5 +26,4 @@ it('lists supported languages', function () {
     $this->artisan(LanguagesListCommand::class)
         ->expectsTable(['code', 'name'], $supportedLanguages)
         ->assertExitCode(0);
-
 });
