@@ -6,7 +6,7 @@ use CrowdinApiClient\Api\ApiInterface;
 use Illuminate\Support\Str;
 
 /**
- * Class Crowdin
+ * Class Crowdin.
  *
  * @property \Lukasss93\LarexCrowdin\Support\Crowdin\StorageApi storage
  * @inheritdoc
@@ -34,7 +34,6 @@ class Crowdin extends \CrowdinApiClient\Crowdin
         }
 
         if (!array_key_exists($class, $this->apis)) {
-
             $override = collect($this->overriddenClasses)
                 ->first(fn ($item, $key) => Str::replaceFirst('\\', '', $class) === $key);
 

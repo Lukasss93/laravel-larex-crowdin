@@ -130,7 +130,7 @@ class CrowdinImporter implements Importer
                 ->substr(1)
                 ->replace('.json', '');
 
-            $body = (array)$group["body"];
+            $body = (array)$group['body'];
 
             if (!array_key_exists('trans-unit', $body)) {
                 continue;

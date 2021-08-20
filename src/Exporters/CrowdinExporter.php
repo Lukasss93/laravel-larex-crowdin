@@ -174,7 +174,6 @@ class CrowdinExporter implements Exporter
                     'storageId' => $storage->getId(),
                     'fileId' => $itemFile->getId(),
                 ]);
-
             }
             $bar->advance();
         }

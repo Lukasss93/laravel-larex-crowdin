@@ -10,7 +10,7 @@ use SplFileObject;
 class StorageApi extends \CrowdinApiClient\Api\StorageApi
 {
     /**
-     * Add Storage
+     * Add Storage.
      *
      * @link https://support.crowdin.com/api/v2/#operation/api.storages.post API Documentation
      * @link https://support.crowdin.com/enterprise/api/#operation/api.storages.post API Documentation Enterprise
@@ -20,12 +20,12 @@ class StorageApi extends \CrowdinApiClient\Api\StorageApi
      */
     public function create($fileObject): ?Storage
     {
-        if($fileObject instanceof SplFileObject){
-            $name=$fileObject->getFilename();
-            $content=file_get_contents($fileObject->getRealPath());
-        } else if($fileObject instanceof VirtualSplFileObject){
-            $name=$fileObject->getName();
-            $content=$fileObject->getContent();
+        if ($fileObject instanceof SplFileObject) {
+            $name = $fileObject->getFilename();
+            $content = file_get_contents($fileObject->getRealPath());
+        } elseif ($fileObject instanceof VirtualSplFileObject) {
+            $name = $fileObject->getName();
+            $content = $fileObject->getContent();
         } else {
             throw new InvalidArgumentException('$fileObject field must be SplFileObject or VirtualSplFileObject.');
         }
@@ -34,7 +34,7 @@ class StorageApi extends \CrowdinApiClient\Api\StorageApi
             'headers' => [
                 'Crowdin-API-FileName' => $name,
             ],
-            'body' => $content
+            'body' => $content,
         ];
 
         return $this->client->apiRequest('post', 'storages', new ResponseModelDecorator(Storage::class), $options);

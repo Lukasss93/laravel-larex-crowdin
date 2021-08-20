@@ -22,7 +22,6 @@ it('has right description', function () {
 });
 
 it('does not import due to no source files found', function () {
-
     mockCrowdin([
         'project' => $this->partialMock(ProjectApi::class, function (MockInterface $mock) {
             $mock
@@ -39,19 +38,17 @@ it('does not import due to no source files found', function () {
     $this->artisan(LarexImportCommand::class, ['importer' => 'crowdin'])
         ->expectsOutput('Importing entries...')
         ->expectsOutput('Getting project informations...')
-        ->expectsOutput("Project: [123456] Foo Project")
-        ->expectsOutput("Source language: en")
+        ->expectsOutput('Project: [123456] Foo Project')
+        ->expectsOutput('Source language: en')
         ->expectsOutput('Getting project source files list...')
         ->expectsOutput('Project source files found: 0')
         ->expectsOutput('No data found to import.')
         ->assertExitCode(0);
 
     expect(base_path(config('larex.csv.path')))->not()->toBeFile();
-
 });
 
 it('imports strings', function () {
-
     Http::fake([
         'crowdin-importer.downloads.crowdin.com/*' => Http::sequence()
             ->push(['hello' => 'Hello', 'car' => 'Car'])
@@ -92,8 +89,8 @@ it('imports strings', function () {
     $this->artisan(LarexImportCommand::class, ['importer' => 'crowdin'])
         ->expectsOutput('Importing entries...')
         ->expectsOutput('Getting project informations...')
-        ->expectsOutput("Project: [123456] Foo Project")
-        ->expectsOutput("Source language: en")
+        ->expectsOutput('Project: [123456] Foo Project')
+        ->expectsOutput('Source language: en')
         ->expectsOutput('Getting project source files list...')
         ->expectsOutput('Project source files found: 4')
         ->expectsOutput('Downloading project translation files...')
@@ -105,7 +102,6 @@ it('imports strings', function () {
         ->toBeFile()
         ->fileContent()
         ->toEqualStub('importer/base/localization.csv');
-
 });
 
 it('imports strings with --include option', function () {
@@ -147,8 +143,8 @@ it('imports strings with --include option', function () {
     $this->artisan(LarexImportCommand::class, ['importer' => 'crowdin', '--include' => 'it'])
         ->expectsOutput('Importing entries...')
         ->expectsOutput('Getting project informations...')
-        ->expectsOutput("Project: [123456] Foo Project")
-        ->expectsOutput("Source language: en")
+        ->expectsOutput('Project: [123456] Foo Project')
+        ->expectsOutput('Source language: en')
         ->expectsOutput('Getting project source files list...')
         ->expectsOutput('Project source files found: 4')
         ->expectsOutput('Downloading project translation files...')
@@ -201,8 +197,8 @@ it('imports strings with --exclude option', function () {
     $this->artisan(LarexImportCommand::class, ['importer' => 'crowdin', '--exclude' => 'it,de'])
         ->expectsOutput('Importing entries...')
         ->expectsOutput('Getting project informations...')
-        ->expectsOutput("Project: [123456] Foo Project")
-        ->expectsOutput("Source language: en")
+        ->expectsOutput('Project: [123456] Foo Project')
+        ->expectsOutput('Source language: en')
         ->expectsOutput('Getting project source files list...')
         ->expectsOutput('Project source files found: 4')
         ->expectsOutput('Downloading project translation files...')
