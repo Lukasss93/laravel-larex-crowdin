@@ -64,7 +64,8 @@ class CrowdinImporter implements Importer
         //download translation files per language
         $command->warn('Downloading project translation files...');
         $translations = [];
-        $command->withProgressBar($targetLanguages, function ($languageID) use ($projectID, $crowdin, &$translations) {
+        $bar = $command->getOutput()->createProgressBar($targetLanguages->count());
+        foreach ($targetLanguages as $languageID) {
             $export = $crowdin->translation->exportProjectTranslation($projectID, [
                 'targetLanguageId' => $languageID,
                 'format' => 'xliff',
@@ -72,7 +73,9 @@ class CrowdinImporter implements Importer
             ]);
             $xliff = Http::get($export->getUrl())->body();
             $translations[$languageID] = $this->parseXliff($xliff);
-        });
+            $bar->advance();
+        }
+        $bar->finish();
         $command->info('');
         $command->info('');
 
@@ -80,32 +83,35 @@ class CrowdinImporter implements Importer
         $command->warn('Downloading project source files...');
         $rows = collect([]);
 
-        $command->withProgressBar($files,
-            function ($file) use ($translations, $targetLanguages, $sourceLanguage, &$rows, $projectID, $crowdin) {
-                $download = $crowdin->file->download($projectID, $file->getId());
+        $bar = $command->getOutput()->createProgressBar(count($files));
+        foreach ($files as $file) {
+            $download = $crowdin->file->download($projectID, $file->getId());
 
-                $group = pathinfo($file->getName(), PATHINFO_FILENAME);
-                $content = collect(Http::get($download->getUrl())->json());
+            $group = pathinfo($file->getName(), PATHINFO_FILENAME);
+            $content = collect(Http::get($download->getUrl())->json());
 
-                $rows = $rows->merge($content->map(function ($item, $key) use (
-                    $group,
-                    $sourceLanguage,
-                    $targetLanguages,
-                    $translations
-                ) {
-                    $out = [
-                        'group' => $group,
-                        'key' => $key,
-                        $sourceLanguage => $item,
-                    ];
+            $rows = $rows->merge($content->map(function ($item, $key) use (
+                $group,
+                $sourceLanguage,
+                $targetLanguages,
+                $translations
+            ) {
+                $out = [
+                    'group' => $group,
+                    'key' => $key,
+                    $sourceLanguage => $item,
+                ];
 
-                    foreach ($targetLanguages as $languageID) {
-                        $out[$languageID] = $translations[$languageID][$group][$key] ?? null;
-                    }
+                foreach ($targetLanguages as $languageID) {
+                    $out[$languageID] = $translations[$languageID][$group][$key] ?? null;
+                }
 
-                    return $out;
-                })->values());
-            });
+                return $out;
+            })->values());
+
+            $bar->advance();
+        }
+        $bar->finish();
         $command->info('');
         $command->info('');
 
