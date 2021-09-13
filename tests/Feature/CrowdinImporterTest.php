@@ -51,7 +51,7 @@ it('does not import due to no source files found', function () {
 it('imports strings', function () {
     Http::fake([
         'crowdin-importer.downloads.crowdin.com/*' => Http::sequence()
-            ->push(['hello' => 'Hello', 'car' => 'Car'])
+            ->push(['hello' => 'Hello', 'car' => 'Car', 'fruit' => ['apple' => 'Apple', 'banana' => 'Banana']])
             ->push(['red' => 'Red', 'blue' => 'Blue'])
             ->push(['phone' => 'Phone'])
             ->push(['one' => 'One'])
@@ -107,7 +107,7 @@ it('imports strings', function () {
 it('imports strings with --include option', function () {
     Http::fake([
         'crowdin-importer.downloads.crowdin.com/*' => Http::sequence()
-            ->push(['hello' => 'Hello', 'car' => 'Car'])
+            ->push(['hello' => 'Hello', 'car' => 'Car', 'fruit' => ['apple' => 'Apple', 'banana' => 'Banana']])
             ->push(['red' => 'Red', 'blue' => 'Blue'])
             ->push(['phone' => 'Phone'])
             ->push(['one' => 'One'])
@@ -161,7 +161,7 @@ it('imports strings with --include option', function () {
 it('imports strings with --exclude option', function () {
     Http::fake([
         'crowdin-importer.downloads.crowdin.com/*' => Http::sequence()
-            ->push(['hello' => 'Hello', 'car' => 'Car'])
+            ->push(['hello' => 'Hello', 'car' => 'Car', 'fruit' => ['apple' => 'Apple', 'banana' => 'Banana']])
             ->push(['red' => 'Red', 'blue' => 'Blue'])
             ->push(['phone' => 'Phone'])
             ->push(['one' => 'One'])

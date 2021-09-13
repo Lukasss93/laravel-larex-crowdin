@@ -1,6 +1,8 @@
 group,key,en,it
 app,hello,Hello,Ciao
 app,car,Car,Auto
+app,fruit.apple,Apple,Mela
+app,fruit.banana,Banana,Banana
 color,red,Red,Rosso
 color,blue,Blue,Blu
 device,phone,Phone,Telefono

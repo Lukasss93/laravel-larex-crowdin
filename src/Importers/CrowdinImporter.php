@@ -2,6 +2,7 @@
 
 namespace Lukasss93\LarexCrowdin\Importers;
 
+use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
@@ -88,7 +89,7 @@ class CrowdinImporter implements Importer
             $download = $crowdin->file->download($projectID, $file->getId());
 
             $group = pathinfo($file->getName(), PATHINFO_FILENAME);
-            $content = collect(Http::get($download->getUrl())->json());
+            $content = collect(Arr::dot(Http::get($download->getUrl())->json()));
 
             $rows = $rows->merge($content->map(function ($item, $key) use (
                 $group,
@@ -143,8 +144,10 @@ class CrowdinImporter implements Importer
             $output[$groupName] = collect($body['trans-unit'] ?? [])
                 ->mapWithKeys(function ($item) {
                     $item = (array)$item;
+                    $key = Str::start($item['@attributes']['resname'], '.');
+                    $value = $item['target'];
 
-                    return [substr($item['@attributes']['resname'], 1) => $item['target']];
+                    return [substr($key, 1) => $value];
                 })->toArray();
         }
 

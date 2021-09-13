@@ -15,6 +15,16 @@
         <target state="translated">Auto</target>
         <note from="Crowdin" priority="2"> -&gt; car</note>
       </trans-unit>
+      <trans-unit id="1586" resname="fruit.apple">
+        <source>Apple</source>
+        <target state="translated">Pomme</target>
+        <note from="Crowdin" priority="2">fruit -&gt; apple</note>
+      </trans-unit>
+      <trans-unit id="1586" resname="fruit.banana">
+        <source>Banana</source>
+        <target state="translated">Banane</target>
+        <note from="Crowdin" priority="2">fruit -&gt; banana</note>
+      </trans-unit>
     </body>
   </file>
   <file id="39" original="/color.json" source-language="en" target-language="fr" datatype="plaintext" project-id="446960" tool-id="crowdin">
