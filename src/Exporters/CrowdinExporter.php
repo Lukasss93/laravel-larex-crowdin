@@ -173,6 +173,7 @@ class CrowdinExporter implements Exporter
                 $crowdin->translation->uploadTranslations($projectID, $languageID, [
                     'storageId' => $storage->getId(),
                     'fileId' => $itemFile->getId(),
+                    'importEqSuggestions' => true,
                 ]);
             }
             $bar->advance();
