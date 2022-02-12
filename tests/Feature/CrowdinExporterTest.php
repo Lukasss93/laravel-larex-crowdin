@@ -43,7 +43,7 @@ it('does not export strings due to invalid language code', function () {
     initFromTestStub('exporter/invalid-language-code/localization.csv');
 
     $this->artisan(LarexExportCommand::class, ['exporter' => 'crowdin'])
-        ->expectsOutput("Processing the 'resources/lang/localization.csv' file...")
+        ->expectsOutput(sprintf("Processing the '%s' file...", csv_path(true)))
         ->expectsOutput('Getting project informations...')
         ->expectsOutput('Project: [123456] Foo Project')
         ->expectsOutput('Source language: en')
@@ -73,7 +73,7 @@ it('does not export strings due to unmatching source language code', function ()
     initFromTestStub('exporter/unmatching-source-language-code/localization.csv');
 
     $this->artisan(LarexExportCommand::class, ['exporter' => 'crowdin'])
-        ->expectsOutput("Processing the 'resources/lang/localization.csv' file...")
+        ->expectsOutput(sprintf("Processing the '%s' file...", csv_path(true)))
         ->expectsOutput('Getting project informations...')
         ->expectsOutput('Project: [123456] Foo Project')
         ->expectsOutput('Source language: de')
@@ -134,7 +134,7 @@ it('exports strings', function () {
     initFromTestStub('exporter/base/localization.csv');
 
     $this->artisan(LarexExportCommand::class, ['exporter' => 'crowdin'])
-        ->expectsOutput("Processing the 'resources/lang/localization.csv' file...")
+        ->expectsOutput(sprintf("Processing the '%s' file...", csv_path(true)))
         ->expectsOutput('Getting project informations...')
         ->expectsOutput('Project: [123456] Foo Project')
         ->expectsOutput('Source language: en')
@@ -211,7 +211,7 @@ it('exports strings with --include option', function () {
     initFromTestStub('exporter/base/localization.csv');
 
     $this->artisan(LarexExportCommand::class, ['exporter' => 'crowdin', '--include' => 'it'])
-        ->expectsOutput("Processing the 'resources/lang/localization.csv' file...")
+        ->expectsOutput(sprintf("Processing the '%s' file...", csv_path(true)))
         ->expectsOutput('Getting project informations...')
         ->expectsOutput('Project: [123456] Foo Project')
         ->expectsOutput('Source language: en')
@@ -288,7 +288,7 @@ it('exports strings with --exclude option', function () {
     initFromTestStub('exporter/base/localization.csv');
 
     $this->artisan(LarexExportCommand::class, ['exporter' => 'crowdin', '--exclude' => 'it,fr'])
-        ->expectsOutput("Processing the 'resources/lang/localization.csv' file...")
+        ->expectsOutput(sprintf("Processing the '%s' file...", csv_path(true)))
         ->expectsOutput('Getting project informations...')
         ->expectsOutput('Project: [123456] Foo Project')
         ->expectsOutput('Source language: en')
