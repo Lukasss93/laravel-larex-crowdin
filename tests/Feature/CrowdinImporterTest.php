@@ -45,7 +45,7 @@ it('does not import due to no source files found', function () {
         ->expectsOutput('No data found to import.')
         ->assertExitCode(0);
 
-    expect(base_path(config('larex.csv.path')))->not()->toBeFile();
+    expect(config('larex.csv.path'))->not()->toBeFile();
 });
 
 it('imports strings', function () {
@@ -98,7 +98,7 @@ it('imports strings', function () {
         ->expectsOutput('Data imported successfully.')
         ->assertExitCode(0);
 
-    expect(base_path(config('larex.csv.path')))
+    expect(config('larex.csv.path'))
         ->toBeFile()
         ->fileContent()
         ->toEqualStub('importer/base/localization.csv');
@@ -152,7 +152,7 @@ it('imports strings with --include option', function () {
         ->expectsOutput('Data imported successfully.')
         ->assertExitCode(0);
 
-    expect(base_path(config('larex.csv.path')))
+    expect(config('larex.csv.path'))
         ->toBeFile()
         ->fileContent()
         ->toEqualStub('importer/base/localizationInclude.csv');
@@ -206,7 +206,7 @@ it('imports strings with --exclude option', function () {
         ->expectsOutput('Data imported successfully.')
         ->assertExitCode(0);
 
-    expect(base_path(config('larex.csv.path')))
+    expect(config('larex.csv.path'))
         ->toBeFile()
         ->fileContent()
         ->toEqualStub('importer/base/localizationExclude.csv');

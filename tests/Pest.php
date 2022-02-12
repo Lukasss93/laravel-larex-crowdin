@@ -19,7 +19,7 @@ use Mockery\MockInterface;
 uses(TestCase::class)
     ->beforeEach(function () {
         //clear lang folder
-        $items = glob(resource_path('lang/*'));
+        $items = glob(lang_path('*'));
         foreach ($items as $item) {
             if (is_dir($item)) {
                 File::deleteDirectory($item);
@@ -83,5 +83,5 @@ function getStub($name, bool $asPHP = false)
 
 function initFromTestStub(string $name)
 {
-    File::put(base_path(config('larex.csv.path')), getStub($name));
+    File::put(config('larex.csv.path'), getStub($name));
 }

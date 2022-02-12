@@ -28,12 +28,18 @@
     "autoload": {
         "psr-4": {
             "Lukasss93\\LarexCrowdin\\": "src/"
-        }
+        },
+        "files": [
+            "src/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
             "Lukasss93\\LarexCrowdin\\Tests\\": "tests/"
-        }
+        },
+        "files": [
+            "src/helpers.php"
+        ]
     },
     "config": {
         "sort-packages": true,
