@@ -66,7 +66,7 @@ class CrowdinExporter implements Exporter
                     ['keys' => ['code']]
                 );
 
-                $suggest = collect($fuse->search($item))->pluck('code');
+                $suggest = collect($fuse->search($item))->pluck('item.code');
 
                 if ($suggest->isNotEmpty()) {
                     $command->warn("Try to change '$item' code with one of these supported codes: {$suggest->implode(', ')}");
