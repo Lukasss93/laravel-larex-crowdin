@@ -23,6 +23,7 @@
         <exclude>
             <directory>./src/Support</directory>
             <file>./src/LarexCrowdinServiceProvider.php</file>
+            <file>./src/helpers.php</file>
         </exclude>
     </coverage>
 </phpunit>
