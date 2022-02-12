@@ -99,6 +99,18 @@ php artisan vendor:publish --provider="Lukasss93\LarexCrowdin\LarexCrowdinServic
 composer test
 ```
 
+## 🔰 Version Support
+
+| Larex Crowdin | L7.x | L8.x | L9.x |
+|---------------|------|------|------|
+| ^1.0          | ✅    | ✅    | ❌    |
+| ^2.0          | ❌    | ✅    | ✅    |
+
+| Larex Crowdin | PHP7.4 | PHP8.0 | PHP8.1  |
+|---------------|--------|--------|---------|
+| ^1.0          | ✅      | ✅      | ✅       |
+| ^2.0          | ❌      | ✅      | ✅       |
+
 ## 📃 Changelog
 
 Please see the [CHANGELOG.md](CHANGELOG.md) for more information
