@@ -6,8 +6,8 @@
 
 [![Version](https://poser.pugx.org/lukasss93/laravel-larex-crowdin/v/stable)](https://packagist.org/packages/lukasss93/laravel-larex-crowdin)
 [![Downloads](https://poser.pugx.org/lukasss93/laravel-larex-crowdin/downloads)](https://packagist.org/packages/lukasss93/laravel-larex-crowdin)
-![PHP](https://img.shields.io/badge/PHP-%E2%89%A5%207.4-blue)
-![Laravel](https://img.shields.io/badge/Laravel-%E2%89%A5%207.0-orange)
+![PHP](https://img.shields.io/badge/PHP-%E2%89%A5%208.0-blue)
+![Laravel](https://img.shields.io/badge/Laravel-%E2%89%A5%208.0-orange)
 [![License](https://poser.pugx.org/lukasss93/laravel-larex-crowdin/license)](https://packagist.org/packages/lukasss93/laravel-larex-crowdin)
 ![Build](https://img.shields.io/github/workflow/status/Lukasss93/laravel-larex-crowdin/run-tests)
 [![Coverage](https://img.shields.io/codecov/c/github/lukasss93/laravel-larex-crowdin?token=7YedNMIso5)](https://codecov.io/gh/Lukasss93/laravel-larex-crowdin)
@@ -17,8 +17,8 @@
 
 ## 📋 Requirements
 
-- PHP 7.4 | 8.0
-- Laravel ≥ 7
+- PHP ≥ 8.0
+- Laravel ≥ 8
 - [Laravel Larex](https://github.com/Lukasss93/laravel-larex) ≥ v3.5
 - [Crowdin API Token v2](https://crowdin.com/settings#api-key)
 - Crowdin Project ID `Crowdin > Project > Settings > API & Webhooks > Project Id [API v2]`
