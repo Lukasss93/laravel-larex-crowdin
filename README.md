@@ -19,7 +19,7 @@
 
 - PHP ≥ 8.0
 - Laravel ≥ 8
-- [Laravel Larex](https://github.com/Lukasss93/laravel-larex) ≥ v3.5
+- [Laravel Larex](https://github.com/Lukasss93/laravel-larex) ≥ v4.0
 - [Crowdin API Token v2](https://crowdin.com/settings#api-key)
 - Crowdin Project ID `Crowdin > Project > Settings > API & Webhooks > Project Id [API v2]`
 
