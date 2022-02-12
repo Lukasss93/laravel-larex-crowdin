@@ -1,6 +1,6 @@
 <?php
 
-if (! function_exists('lang_path')) {
+if (!function_exists('lang_path')) {
     /**
      * Get the path to the language folder.
      *
@@ -13,7 +13,7 @@ if (! function_exists('lang_path')) {
     }
 }
 
-if(! function_exists('csv_path')){
+if (!function_exists('csv_path')) {
     function csv_path($relative = false): string
     {
         $path = config('larex.csv.path');
