@@ -9,7 +9,7 @@
 ![PHP](https://img.shields.io/badge/PHP-%E2%89%A5%208.0-blue)
 ![Laravel](https://img.shields.io/badge/Laravel-%E2%89%A5%208.0-orange)
 [![License](https://poser.pugx.org/lukasss93/laravel-larex-crowdin/license)](https://packagist.org/packages/lukasss93/laravel-larex-crowdin)
-![Build](https://img.shields.io/github/workflow/status/Lukasss93/laravel-larex-crowdin/run-tests)
+![Build](https://img.shields.io/github/actions/workflow/status/Lukasss93/laravel-larex-crowdin/run-tests.yml)
 [![Coverage](https://img.shields.io/codecov/c/github/lukasss93/laravel-larex-crowdin?token=7YedNMIso5)](https://codecov.io/gh/Lukasss93/laravel-larex-crowdin)
 
 
