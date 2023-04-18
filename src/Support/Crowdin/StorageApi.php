@@ -15,19 +15,19 @@ class StorageApi extends \CrowdinApiClient\Api\StorageApi
      * @link https://support.crowdin.com/api/v2/#operation/api.storages.post API Documentation
      * @link https://support.crowdin.com/enterprise/api/#operation/api.storages.post API Documentation Enterprise
      *
-     * @param SplFileObject|VirtualSplFileObject $fileObject
+     * @param SplFileObject|VirtualSplFileObject $fileInfo
      * @return Storage|null
      */
-    public function create($fileObject): ?Storage
+    public function create($fileInfo): ?Storage
     {
-        if ($fileObject instanceof SplFileObject) {
-            $name = $fileObject->getFilename();
-            $content = file_get_contents($fileObject->getRealPath());
-        } elseif ($fileObject instanceof VirtualSplFileObject) {
-            $name = $fileObject->getName();
-            $content = $fileObject->getContent();
+        if ($fileInfo instanceof SplFileObject) {
+            $name = $fileInfo->getFilename();
+            $content = file_get_contents($fileInfo->getRealPath());
+        } elseif ($fileInfo instanceof VirtualSplFileObject) {
+            $name = $fileInfo->getName();
+            $content = $fileInfo->getContent();
         } else {
-            throw new InvalidArgumentException('$fileObject field must be SplFileObject or VirtualSplFileObject.');
+            throw new InvalidArgumentException('$fileInfo field must be SplFileObject or VirtualSplFileObject.');
         }
 
         $options = [

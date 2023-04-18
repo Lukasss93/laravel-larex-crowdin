@@ -54,7 +54,7 @@ class CrowdinImporter implements Importer
         $command->info('');
 
         if ($filesCount === 0) {
-            return collect([]);
+            return collect();
         }
 
         //filter $targetLanguages by include/exclude option
@@ -82,7 +82,9 @@ class CrowdinImporter implements Importer
 
         //download source files
         $command->warn('Downloading project source files...');
-        $rows = collect([]);
+
+        /** @var Collection<int,Array<string,string>> $rows */
+        $rows = collect();
 
         $bar = $command->getOutput()->createProgressBar(count($files));
         foreach ($files as $file) {
