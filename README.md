@@ -49,7 +49,7 @@ php artisan vendor:publish --provider="Lukasss93\LarexCrowdin\LarexCrowdinServic
 ```
 
 ## 🔧 Configuration
-1. Install [Laravel Larex](https://github.com/Lukasss93/laravel-larex) ≥ v3.5
+1. Install [Laravel Larex](https://github.com/Lukasss93/laravel-larex) ≥ v4.4
 2. Publish (if you haven't already) and edit
    your [larex.php](https://github.com/Lukasss93/laravel-larex#-publishing-the-config-file) config
 3. Append the Crowdin importer in the `importers.list` array:
