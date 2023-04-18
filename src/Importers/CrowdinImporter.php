@@ -83,7 +83,7 @@ class CrowdinImporter implements Importer
         //download source files
         $command->warn('Downloading project source files...');
 
-        /** @var Collection<int,Array<string,string>> $rows */
+        /** @var Collection<int,array<string,string>> $rows */
         $rows = collect();
 
         $bar = $command->getOutput()->createProgressBar(count($files));
