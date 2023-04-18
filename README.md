@@ -4,14 +4,14 @@
 
 # Laravel Larex: Crowdin Plugin
 
-[![Version](https://poser.pugx.org/lukasss93/laravel-larex-crowdin/v/stable)](https://packagist.org/packages/lukasss93/laravel-larex-crowdin)
-[![Downloads](https://poser.pugx.org/lukasss93/laravel-larex-crowdin/downloads)](https://packagist.org/packages/lukasss93/laravel-larex-crowdin)
-![PHP](https://img.shields.io/badge/PHP-%E2%89%A5%208.0-blue)
-![Laravel](https://img.shields.io/badge/Laravel-%E2%89%A5%208.0-orange)
-[![License](https://poser.pugx.org/lukasss93/laravel-larex-crowdin/license)](https://packagist.org/packages/lukasss93/laravel-larex-crowdin)
-![Build](https://img.shields.io/github/actions/workflow/status/Lukasss93/laravel-larex-crowdin/run-tests.yml)
-[![Coverage](https://img.shields.io/codecov/c/github/lukasss93/laravel-larex-crowdin?token=7YedNMIso5)](https://codecov.io/gh/Lukasss93/laravel-larex-crowdin)
+[![Version](https://img.shields.io/packagist/v/lukasss93/laravel-larex-crowdin?label=composer&logo=composer)](https://packagist.org/packages/lukasss93/laravel-larex-crowdin)
+[![Downloads](https://img.shields.io/packagist/dt/lukasss93/laravel-larex-crowdin)](https://packagist.org/packages/lukasss93/laravel-larex-crowdin)
+![License](https://img.shields.io/packagist/l/lukasss93/laravel-larex-crowdin)
+![PHP](https://img.shields.io/packagist/dependency-v/lukasss93/laravel-larex-crowdin/php?logo=php)
+![Laravel](https://img.shields.io/packagist/dependency-v/lukasss93/laravel-larex-crowdin/illuminate/support?label=laravel&logo=laravel)
 
+![Tests](https://img.shields.io/github/actions/workflow/status/lukasss93/laravel-larex-crowdin/run-tests.yml?label=Test%20Suite&logo=github)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/2a09f510bcb3b58bd8a4/test_coverage)](https://codeclimate.com/github/Lukasss93/laravel-larex-crowdin/test_coverage)
 
 > A Laravel Larex plugin to import/export localization strings from/to Crowdin
 
