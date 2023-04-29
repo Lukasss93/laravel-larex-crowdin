@@ -13,7 +13,6 @@ use Lukasss93\Larex\Support\CsvParser;
 use Lukasss93\Larex\Support\CsvReader;
 use Lukasss93\LarexCrowdin\Support\Crowdin\Crowdin;
 use Lukasss93\LarexCrowdin\Support\Crowdin\VirtualSplFileObject;
-use SplFileObject;
 
 class CrowdinExporter implements Exporter
 {
