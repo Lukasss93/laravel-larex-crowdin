@@ -13,7 +13,7 @@ use Lukasss93\Larex\Support\CsvParser;
 use Lukasss93\Larex\Support\CsvReader;
 use Lukasss93\LarexCrowdin\Support\Crowdin\Crowdin;
 use Lukasss93\LarexCrowdin\Support\Crowdin\VirtualSplFileObject;
-use Lukasss93\LarexCrowdin\Support\CrowdinExtensions;
+use SplFileObject;
 
 class CrowdinExporter implements Exporter
 {
@@ -53,7 +53,7 @@ class CrowdinExporter implements Exporter
         $languages = $parser->parse(false);
 
         //validate language codes
-        $supportedLanguages = collect(CrowdinExtensions::languageList($crowdin))->map->getId();
+        $supportedLanguages = collect($crowdin->languageList())->map->getId();
 
         $csvLanguagesFull = collect($languages)->keys();
         foreach ($csvLanguagesFull as $item) {
@@ -91,7 +91,7 @@ class CrowdinExporter implements Exporter
 
         //get source file list
         /** @var Collection|File[] $fileList */
-        $fileList = collect(CrowdinExtensions::fileList($crowdin, $projectID));
+        $fileList = collect($crowdin->fileList($projectID));
 
         //upload source files
         $command->warn('Uploading source files...');

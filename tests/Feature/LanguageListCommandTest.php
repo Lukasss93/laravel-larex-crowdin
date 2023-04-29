@@ -7,7 +7,7 @@ use Mockery\MockInterface;
 
 it('lists supported languages', function () {
     mockCrowdin([
-        'language' => $this->partialMock(LanguageApi::class, function (MockInterface $mock) {
+        'language' => $this->mock(LanguageApi::class, function (MockInterface $mock) {
             $mock
                 ->shouldReceive('list')
                 ->andReturnValues(getStub([

@@ -57,7 +57,7 @@ expect()->extend('toEqualStub', fn ($name) => $this->toEqual(getStub($name)));
 
 function mockCrowdin(array $properties)
 {
-    test()->mock(Crowdin::class, function (MockInterface $mock) use ($properties) {
+    test()->partialMock(Crowdin::class, function (MockInterface $mock) use ($properties) {
         foreach ($properties as $property => $mockLogic) {
             $mock->{$property} = $mockLogic;
         }

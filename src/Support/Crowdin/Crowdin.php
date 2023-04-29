@@ -46,4 +46,34 @@ class Crowdin extends \CrowdinApiClient\Crowdin
 
         return $this->apis[$class];
     }
+
+    public function fileList(int $projectID, int $limit = 500): array
+    {
+        $files = [];
+        $end = false;
+        $offset = 0;
+        do {
+            $currentFiles = $this->file->list($projectID, ['offset' => $offset, 'limit' => $limit]);
+            $end = count($currentFiles) === 0;
+            $offset += $limit;
+            $files = array_merge($files, iterator_to_array($currentFiles->getIterator()));
+        } while (!$end);
+
+        return $files;
+    }
+
+    public function languageList(int $limit = 500): array
+    {
+        $items = [];
+        $end = false;
+        $offset = 0;
+        do {
+            $currentFiles = $this->language->list(['offset' => $offset, 'limit' => $limit]);
+            $end = count($currentFiles) === 0;
+            $offset += $limit;
+            $items = array_merge($items, iterator_to_array($currentFiles->getIterator()));
+        } while (!$end);
+
+        return $items;
+    }
 }

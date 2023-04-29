@@ -5,7 +5,6 @@ namespace Lukasss93\LarexCrowdin\Commands;
 use CrowdinApiClient\Model\Language;
 use Illuminate\Console\Command;
 use Lukasss93\LarexCrowdin\Support\Crowdin\Crowdin;
-use Lukasss93\LarexCrowdin\Support\CrowdinExtensions;
 
 class LanguagesListCommand extends Command
 {
@@ -13,12 +12,9 @@ class LanguagesListCommand extends Command
 
     protected $description = 'List Supported Languages';
 
-    public function handle(): int
+    public function handle(Crowdin $crowdin): int
     {
-        /** @var Crowdin $crowdin */
-        $crowdin = app(Crowdin::class);
-
-        $supportedLanguages = collect(CrowdinExtensions::languageList($crowdin))
+        $supportedLanguages = collect($crowdin->languageList())
             ->map(fn (Language $item) => [$item->getId(), $item->getName()])
             ->sortBy(0)
             ->values()

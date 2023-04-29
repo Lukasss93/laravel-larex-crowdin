@@ -9,7 +9,6 @@ use Illuminate\Support\Str;
 use Lukasss93\Larex\Console\LarexImportCommand;
 use Lukasss93\Larex\Contracts\Importer;
 use Lukasss93\LarexCrowdin\Support\Crowdin\Crowdin;
-use Lukasss93\LarexCrowdin\Support\CrowdinExtensions;
 
 class CrowdinImporter implements Importer
 {
@@ -48,7 +47,7 @@ class CrowdinImporter implements Importer
 
         //list source files
         $command->warn('Getting project source files list...');
-        $files = CrowdinExtensions::fileList($crowdin, $projectID);
+        $files = $crowdin->fileList($projectID);
         $filesCount = count($files);
         $command->info("Project source files found: $filesCount");
         $command->info('');
