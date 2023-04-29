@@ -25,9 +25,10 @@ class LarexCrowdinServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__.'/config/larex-crowdin.php', 'larex-crowdin');
 
         $this->app->singleton(Crowdin::class, function (Application $app) {
-            return new Crowdin([
+            return new Crowdin(array_filter([
                 'access_token' => config('larex-crowdin.token'),
-            ]);
+                'organization' => config('larex-crowdin.organization'),
+            ]));
         });
 
         $this->app->alias(Crowdin::class, 'crowdin');

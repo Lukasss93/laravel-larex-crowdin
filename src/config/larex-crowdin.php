@@ -28,4 +28,15 @@ return [
 
     'project_id' => (int)env('LAREX_CROWDIN_PROJECT_ID'),
 
+    /*
+     |--------------------------------------------------------------------------
+     | Crowdin Organization Name
+     |--------------------------------------------------------------------------
+     |
+     | Optional.
+     | Enter your Crowdin Organization Name here.
+     |
+     */
+
+    'organization' => env('LAREX_CROWDIN_ORGANIZATION'),
 ];
