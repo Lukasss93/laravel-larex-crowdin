@@ -20,8 +20,12 @@
 - PHP ≥ 8.0
 - Laravel ≥ 8
 - [Laravel Larex](https://github.com/Lukasss93/laravel-larex) ≥ v4.4
-- [Crowdin API Token v2](https://crowdin.com/settings#api-key)
-- Crowdin Project ID `Crowdin > Project > Settings > API & Webhooks > Project Id [API v2]`
+- Crowdin API Token
+  - Standard account: `https://crowdin.com/settings#api-key` (API v2)
+  - Enterprise account: `https://<your-organization-name>.crowdin.com/u/user_settings/access-tokens`
+- Crowdin Project ID 
+  - Standard account: `https://crowdin.com/project/<your-project>/tools/api` (API v2)
+  - Enterprise account: `https://<your-organization-name>.crowdin.com/u/projects/<your-project-id>#home`
 
 ## 🚀 Installation
 
@@ -78,13 +82,10 @@ php artisan vendor:publish --provider="Lukasss93\LarexCrowdin\LarexCrowdinServic
     ```
 5. Edit your .env file and append the following strings:
     ```dotenv
-    # You can generate your token here: https://crowdin.com/settings#api-key
-    # Please note: this library supports only the Crowdin API v2
+    # For more info about this fields, see the "config/larex-crowdin.php" file
     LAREX_CROWDIN_TOKEN=<crowdin-token>
-    
-    # You can get your project id (API v2) here: 
-    # https://crowdin.com/project/your-project/settings#api
     LAREX_CROWDIN_PROJECT_ID=<crowdin-projectID>
+    LAREX_CROWDIN_ORGANIZATION=<crowdin-organization-name>
     ```
 
 ## 👓 Usage
