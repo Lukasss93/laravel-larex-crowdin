@@ -6,7 +6,7 @@ jobs:
   psalm:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -28,8 +28,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: [ 8.0, 8.1, 8.2, 8.3 ]
-        laravel: [ 8.*, 9.*, 10.*, 11.* ]
+        php: [ 8.0, 8.1, 8.2, 8.3, 8.4 ]
+        laravel: [ 8.*, 9.*, 10.*, 11.*, 12.* ]
         include:
           - laravel: 8.*
             testbench: 6.*
@@ -39,22 +39,30 @@ jobs:
             testbench: 8.*
           - laravel: 11.*
             testbench: 9.*
+          - laravel: 12.*
+            testbench: 10.*
         exclude:
           - php: 8.0
             laravel: 10.*
           - php: 8.0
             laravel: 11.*
+          - php: 8.0
+            laravel: 12.*
           - php: 8.1
             laravel: 11.*
+          - php: 8.1
+            laravel: 12.*
+          - php: 8.4
+            laravel: 8.*
 
     name: Laravel ${{ matrix.laravel }} with PHP ${{ matrix.php }}
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Cache dependencies
-        uses: actions/cache@v1
+        uses: actions/cache@v4
         with:
           path: ~/.composer/cache/files
           key: php-${{ matrix.php }}-composer-${{ hashFiles('composer.json') }}
@@ -83,7 +91,7 @@ jobs:
     needs: [ tests ]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
@@ -97,7 +105,7 @@ jobs:
         run: composer install --prefer-dist --no-interaction
 
       - name: Run test suite
-        uses: paambaati/codeclimate-action@v5.0.0
+        uses: paambaati/codeclimate-action@v9
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_REPORTER_ID }}
         with:
