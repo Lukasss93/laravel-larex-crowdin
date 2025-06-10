@@ -2,7 +2,6 @@
 
 namespace Lukasss93\LarexCrowdin;
 
-use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
 use Lukasss93\LarexCrowdin\Commands\LanguagesListCommand;
 use Lukasss93\LarexCrowdin\Support\Crowdin\Crowdin;
