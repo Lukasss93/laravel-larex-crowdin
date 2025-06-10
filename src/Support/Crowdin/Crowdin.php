@@ -50,7 +50,6 @@ class Crowdin extends \CrowdinApiClient\Crowdin
     public function fileList(int $projectID, int $limit = 500): array
     {
         $files = [];
-        $end = false;
         $offset = 0;
         do {
             $currentFiles = $this->file->list($projectID, ['offset' => $offset, 'limit' => $limit]);
@@ -65,7 +64,6 @@ class Crowdin extends \CrowdinApiClient\Crowdin
     public function languageList(int $limit = 500): array
     {
         $items = [];
-        $end = false;
         $offset = 0;
         do {
             $currentFiles = $this->language->list(['offset' => $offset, 'limit' => $limit]);
