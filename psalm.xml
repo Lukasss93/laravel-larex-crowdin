@@ -4,6 +4,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns="https://getpsalm.org/schema/config"
     xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
+    ensureOverrideAttribute="false"
 >
     <projectFiles>
         <directory name="src"/>
@@ -12,13 +13,17 @@
         </ignoreFiles>
     </projectFiles>
     <issueHandlers>
-        <UndefinedClass>
+        <PossiblyUnusedMethod>
             <errorLevel type="suppress">
+                <directory name="src/Commands"/>
             </errorLevel>
-        </UndefinedClass>
-        <InaccessibleProperty>
+        </PossiblyUnusedMethod>
+        <UnusedClass>
             <errorLevel type="suppress">
+                <directory name="src/Exporters"/>
+                <directory name="src/Importers"/>
+                <file name="src/LarexCrowdinServiceProvider.php"/>
             </errorLevel>
-        </InaccessibleProperty>
+        </UnusedClass>
     </issueHandlers>
 </psalm>

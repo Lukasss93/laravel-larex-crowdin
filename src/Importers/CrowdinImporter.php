@@ -30,7 +30,6 @@ class CrowdinImporter implements Importer
 
         $command->info('');
 
-        /** @var Crowdin $crowdin */
         $crowdin = app(Crowdin::class);
 
         //get project

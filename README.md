@@ -17,8 +17,8 @@
 
 ## 📋 Requirements
 
-- PHP ≥ 8.0
-- Laravel ≥ 8
+- PHP ≥ 8.2
+- Laravel ≥ 11
 - [Laravel Larex](https://github.com/Lukasss93/laravel-larex) ≥ v4.4
 - Crowdin API Token
   - Standard account: `https://crowdin.com/settings#api-key` (API v2)
@@ -99,18 +99,6 @@ php artisan vendor:publish --provider="Lukasss93\LarexCrowdin\LarexCrowdinServic
 ```bash
 composer test
 ```
-
-## 🔰 Version Support
-
-| Larex Crowdin | L7.x | L8.x | L9.x | L10.x | L11.x |
-|:-------------:|:----:|:----:|:----:|:-----:|:-----:|
-|     ^1.0      |  ✅   |  ✅   |  ❌   |   ❌   |   ❌   |
-|     ^2.0      |  ❌   |  ✅   |  ✅   |   ✅   |   ✅   |
-
-| Larex Crowdin | PHP7.4 | PHP8.0 | PHP8.1 | PHP8.2 | PHP8.3 |
-|:-------------:|:------:|:------:|:------:|:------:|:------:|
-|     ^1.0      |   ✅    |   ✅    |   ✅    |   ✅    |   ✅    |
-|     ^2.0      |   ❌    |   ✅    |   ✅    |   ✅    |   ✅    |
 
 ## 📃 Changelog
 

@@ -3,20 +3,16 @@
          xsi:noNamespaceSchemaLocation="./vendor/phpunit/phpunit/phpunit.xsd"
          bootstrap="vendor/autoload.php"
          colors="true"
-         verbose="true"
-         convertErrorsToExceptions="true"
-         convertNoticesToExceptions="true"
-         convertWarningsToExceptions="true"
          processIsolation="false"
          cacheResult="false"
          stopOnFailure="false"
->
+         cacheDirectory=".phpunit.cache">
     <testsuites>
         <testsuite name="Test Suite">
             <directory suffix="Test.php">./tests</directory>
         </testsuite>
     </testsuites>
-    <coverage processUncoveredFiles="true">
+    <source>
         <include>
             <directory suffix=".php">./src</directory>
         </include>
@@ -25,5 +21,5 @@
             <file>./src/LarexCrowdinServiceProvider.php</file>
             <file>./src/helpers.php</file>
         </exclude>
-    </coverage>
+    </source>
 </phpunit>

@@ -33,7 +33,6 @@ class CrowdinExporter implements Exporter
         $include = Str::of($command->option('include'))->explode(',')->reject(fn ($i) => empty($i));
         $exclude = Str::of($command->option('exclude'))->explode(',')->reject(fn ($i) => empty($i));
 
-        /** @var Crowdin $crowdin */
         $crowdin = app(Crowdin::class);
 
         //get project
