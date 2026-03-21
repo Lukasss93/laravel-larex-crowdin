@@ -17,13 +17,13 @@
         "ext-json": "*",
         "ext-simplexml": "*",
         "crowdin/crowdin-api-client": "^1.7",
-        "illuminate/support": "^11.0|^12.0",
+        "illuminate/support": "^11.0|^12.0|^13.0",
         "loilo/fuse": "^7.1",
-        "lukasss93/laravel-larex": "^4.6"
+        "lukasss93/laravel-larex": "^4.7.0"
     },
     "require-dev": {
-        "orchestra/testbench": "^9.0|^10.0",
-        "pestphp/pest": "^3.8",
+        "orchestra/testbench": "^9.0|^10.0|^11.0",
+        "pestphp/pest": "^3.8|^4.0",
         "vimeo/psalm": "^6.7"
     },
     "autoload": {
