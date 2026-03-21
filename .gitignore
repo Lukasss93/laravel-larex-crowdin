@@ -4,3 +4,4 @@ composer.lock
 coverage.xml
 phpunit.xml
 composer.phar
+.phpunit.cache

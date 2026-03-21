@@ -11,7 +11,8 @@
 ![Laravel](https://img.shields.io/packagist/dependency-v/lukasss93/laravel-larex-crowdin/illuminate/support?label=laravel&logo=laravel)
 
 ![Tests](https://img.shields.io/github/actions/workflow/status/lukasss93/laravel-larex-crowdin/run-tests.yml?label=Test%20Suite&logo=github)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/2a09f510bcb3b58bd8a4/test_coverage)](https://codeclimate.com/github/Lukasss93/laravel-larex-crowdin/test_coverage)
+[![Maintainability](https://qlty.sh/gh/Lukasss93/projects/laravel-larex-crowdin/maintainability.svg)](https://qlty.sh/gh/Lukasss93/projects/laravel-larex-crowdin)
+[![Code Coverage](https://qlty.sh/gh/Lukasss93/projects/laravel-larex-crowdin/coverage.svg)](https://qlty.sh/gh/Lukasss93/projects/laravel-larex-crowdin)
 
 > A Laravel Larex plugin to import/export localization strings from/to Crowdin
 
@@ -19,7 +20,7 @@
 
 - PHP ≥ 8.2
 - Laravel ≥ 11
-- [Laravel Larex](https://github.com/Lukasss93/laravel-larex) ≥ v4.4
+- [Laravel Larex](https://github.com/Lukasss93/laravel-larex) ≥ v4.7
 - Crowdin API Token
   - Standard account: `https://crowdin.com/settings#api-key` (API v2)
   - Enterprise account: `https://<your-organization-name>.crowdin.com/u/user_settings/access-tokens`

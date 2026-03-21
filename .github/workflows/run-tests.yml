@@ -2,13 +2,14 @@ name: run-tests
 
 on:
   push:
+    branches: [ master ]
   pull_request:
 
 jobs:
   psalm:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -30,19 +31,24 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: [ 8.2, 8.3, 8.4 ]
-        laravel: [ 11.*, 12.* ]
+        php: [ 8.2, 8.3, 8.4, 8.5 ]
+        laravel: [ 11.*, 12.*, 13.* ]
         include:
           - laravel: 11.*
             testbench: 9.*
           - laravel: 12.*
             testbench: 10.*
+          - laravel: 13.*
+            testbench: 11.*
+        exclude:
+          - laravel: 13.*
+            php: 8.2
 
     name: Laravel ${{ matrix.laravel }} with PHP ${{ matrix.php }}
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Cache dependencies
         uses: actions/cache@v4
@@ -88,9 +94,11 @@ jobs:
         run: composer install --prefer-dist --no-interaction
 
       - name: Run test suite
-        uses: paambaati/codeclimate-action@v9
-        env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_REPORTER_ID }}
+        run: composer run-script test-coverage
+
+      - name: Upload Coverage
+        uses: qltysh/qlty-action/coverage@v2
         with:
-          coverageCommand: composer run-script test-coverage
-          coverageLocations: ${{github.workspace}}/coverage.xml:clover
+          token: ${{ secrets.COVERAGE_TOKEN }}
+          files: ${{github.workspace}}/coverage.xml
+          format: clover
